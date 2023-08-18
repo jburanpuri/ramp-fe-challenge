@@ -64,9 +64,12 @@ export function App() {
             if (newValue === null) {
               return
             }
-
-            await loadTransactionsByEmployee(newValue.id)
-          }}
+            
+            //BUG: 3 - It asked for employee ID, but if there isn't one it will crash. Simple IF statement fixes the issue
+            else if (newValue.id === "") {
+              await loadAllTransactions()
+            }
+            else await loadTransactionsByEmployee(newValue.id)}}
         />
 
         <div className="RampBreak--l" />
