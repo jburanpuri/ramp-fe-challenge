@@ -21,7 +21,7 @@ export function App() {
 
   const loadAllTransactions = useCallback(async () => {
     setIsLoading(true)
-    transactionsByEmployeeUtils.invalidateData()
+    //BUG 7: cached data was cleared, so removed line: transactionsByEmployeeUtils.invalidateData()
 
     await employeeUtils.fetchAll()
     //BUG 5: move it before the paginatedTransactions  so it loads before
