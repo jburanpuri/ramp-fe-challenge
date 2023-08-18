@@ -22,14 +22,16 @@ export const TransactionPane: TransactionPaneComponent = ({
         id={transaction.id}
         checked={approved}
         disabled={loading}
-        onChange={async (newValue) => {
-          await consumerSetTransactionApproval({
-            transactionId: transaction.id,
-            newValue,
-          })
+// Inside TransactionPane component
+      onChange={async (newValue) => {
+        console.log("TransactionPane onChange triggered");
+        await consumerSetTransactionApproval({
+          transactionId: transaction.id,
+          newValue,
+        });
+        setApproved(newValue);
+      }}
 
-          setApproved(newValue)
-        }}
       />
     </div>
   )

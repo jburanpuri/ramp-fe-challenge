@@ -150,8 +150,10 @@ hr.RampBreak--l {
   background-color: var(--color-constructive);
 }
 
+/* BUG 2: Display was invisible and shifted 15 pixels to right*/
 .RampInputCheckbox--input {
-  display: none;
+  opacity: 0;
+  transform: translate(-15px);
 }
 
 .RampButton {
